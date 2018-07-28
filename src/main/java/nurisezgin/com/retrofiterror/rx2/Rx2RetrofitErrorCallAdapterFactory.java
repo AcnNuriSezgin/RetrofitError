@@ -4,7 +4,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
-import nurisezgin.com.retrofiterror.ErrorAdapter;
+import nurisezgin.com.retrofiterror.RetrofitErrorPlugin;
 import retrofit2.Call;
 import retrofit2.CallAdapter;
 import retrofit2.Retrofit;
@@ -74,7 +74,7 @@ public final class Rx2RetrofitErrorCallAdapterFactory extends CallAdapter.Factor
 
             @Override
             public Observable apply(@NonNull Throwable throwable) throws Exception {
-                Throwable newThrowable = new ErrorAdapter()
+                Throwable newThrowable = RetrofitErrorPlugin.errorAdapter()
                         .onError(call, annotations, throwable);
 
                 return Observable.error(newThrowable);

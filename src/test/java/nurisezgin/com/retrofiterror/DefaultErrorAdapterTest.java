@@ -6,7 +6,7 @@ import retrofit2.HttpException;
 
 import java.lang.annotation.Annotation;
 
-import static nurisezgin.com.retrofiterror.ErrorAdapter.UN_AUTHORIZE_ERROR;
+import static nurisezgin.com.retrofiterror.DefaultErrorAdapter.UN_AUTHORIZE_ERROR;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by nurisezgin on 28/07/2018.
  */
-public class ErrorAdapterTest {
+public class DefaultErrorAdapterTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void should_EmptyAnnotationsFireExceptionCorrect() {
@@ -26,7 +26,7 @@ public class ErrorAdapterTest {
 
         Call mockCall = mock(Call.class);
 
-        new ErrorAdapter()
+        new DefaultErrorAdapter()
                 .onError(mockCall, null, httpException);
     }
 
@@ -39,7 +39,7 @@ public class ErrorAdapterTest {
         Annotation mockAnnotation = mock(Annotation.class);
         annotations[0] = mockAnnotation;
 
-        new ErrorAdapter()
+        new DefaultErrorAdapter()
                 .onError(null, annotations, httpException);
     }
 
@@ -58,7 +58,7 @@ public class ErrorAdapterTest {
         Annotation mockAnnotation = mock(Annotation.class);
         annotations[0] = mockAnnotation;
 
-        Throwable throwable = new ErrorAdapter()
+        Throwable throwable = new DefaultErrorAdapter()
                 .onError(mockCall, annotations, null);
 
         String actual = throwable.getMessage();
