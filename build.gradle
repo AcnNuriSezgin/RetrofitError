@@ -2,11 +2,22 @@ group 'nurisezgin.com.retrofiterror'
 version '1.0.0'
 
 apply plugin: 'java'
+apply from: 'publish.gradle'
 
 sourceCompatibility = 1.7
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {

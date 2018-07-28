@@ -5,6 +5,8 @@ jdk:
 
 script: ./gradlew clean check assemble --stacktrace
 
+after_success: ./gradlew bintrayUpload
+
 notifications:
   email: false
 
