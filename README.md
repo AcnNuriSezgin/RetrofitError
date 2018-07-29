@@ -6,7 +6,7 @@ or something different, convert to human readable texts those given from user
 ## Prerequisites
 First, dependency must be added to build.gradle file.
 ```groovy
-implementation 'nurisezgin.com.retrofiterror:retrofiterror:1.0.1'
+implementation 'nurisezgin.com.retrofiterror:retrofiterror:1.0.0'
 ```
 
 ## How To Use

@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 
 def GROUP_ID = 'nurisezgin.com.retrofiterror'
 def ARTIFACT_ID = 'retrofiterror'
-def VERSION = '1.0.1'
+def VERSION = '1.0.0'
 
 def getUserName() {
     return hasProperty('USER') ? USER : System.getenv("user")
@@ -18,12 +18,19 @@ def getPassPhrase() {
     return hasProperty('PASSPHRASE') ? PASSPHRASE : System.getenv("passphrase")
 }
 
+task sourcesJar(type: Jar) {
+    sourceSets.main.java
+    classifier = 'sources'
+}
+
 publishing {
     publications {
         MyPublication(MavenPublication) {
             groupId GROUP_ID
             artifactId ARTIFACT_ID
             version VERSION
+            artifact sourcesJar
+            artifact("$buildDir/libs/retrofiterror-" + VERSION + ".aar")
         }
     }
 }
