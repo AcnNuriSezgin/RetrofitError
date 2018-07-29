@@ -44,7 +44,7 @@ bintray {
         name = 'retrofiterror'
         userOrg = user
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/AcnNuriSezgin/OkHttpCookies'
+        vcsUrl = 'https://github.com/AcnNuriSezgin/RetrofitError.git'
         publicDownloadNumbers = true
         publish = true
         version {
