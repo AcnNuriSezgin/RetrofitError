@@ -30,7 +30,7 @@ publishing {
             artifactId ARTIFACT_ID
             version VERSION
             artifact sourcesJar
-            artifact("$buildDir/libs/retrofiterror-" + VERSION + ".aar")
+            artifact("$buildDir/libs/retrofiterror-" + VERSION + ".jar")
         }
     }
 }
